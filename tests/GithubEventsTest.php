@@ -27,8 +27,8 @@ class GithubEventsTest extends PHPUnit_Framework_TestCase
      */
     public function pushEventReturnsCorrectData()
     {
-        $push = new Push($this->getDataObjectFromJson('InputData/github-push.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/github-push.json'), true);
+        $push = new Push($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/github-push.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/github-push.json'), true);
 
         $this->assertEquals($expectedResult, $push->getMessages());
     }
@@ -38,8 +38,8 @@ class GithubEventsTest extends PHPUnit_Framework_TestCase
      */
     public function commitCommentEventReturnsCorrectData()
     {
-        $commitComment = new CommitComment($this->getDataObjectFromJson('InputData/github-commit_comment.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/github-commit_comment.json'), true);
+        $commitComment = new CommitComment($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/github-commit_comment.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/github-commit_comment.json'), true);
 
         $this->assertEquals($expectedResult, $commitComment->getMessages());
     }
@@ -49,8 +49,8 @@ class GithubEventsTest extends PHPUnit_Framework_TestCase
      */
     public function pullRequestEventReturnsCorrectData()
     {
-        $pullRequest = new PullRequest($this->getDataObjectFromJson('InputData/github-pull_request.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/github-pull_request.json'), true);
+        $pullRequest = new PullRequest($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/github-pull_request.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/github-pull_request.json'), true);
 
         $this->assertEquals($expectedResult, $pullRequest->getMessages());
     }
@@ -60,8 +60,8 @@ class GithubEventsTest extends PHPUnit_Framework_TestCase
      */
     public function issueEventReturnsCorrectData()
     {
-        $issue = new Issues($this->getDataObjectFromJson('InputData/github-issue.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/github-issue.json'), true);
+        $issue = new Issues($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/github-issue.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/github-issue.json'), true);
 
         $this->assertEquals($expectedResult, $issue->getMessages());
     }
@@ -71,8 +71,8 @@ class GithubEventsTest extends PHPUnit_Framework_TestCase
      */
     public function issueCommentEventReturnsCorrectData()
     {
-        $issueComment = new IssueComment($this->getDataObjectFromJson('InputData/github-issue_comment.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/github-issue_comment.json'), true);
+        $issueComment = new IssueComment($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/github-issue_comment.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/github-issue_comment.json'), true);
 
         $this->assertEquals($expectedResult, $issueComment->getMessages());
     }

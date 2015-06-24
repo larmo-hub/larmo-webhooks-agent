@@ -26,8 +26,8 @@ class BitbucketEventsTest extends PHPUnit_Framework_TestCase
      */
     public function pushEventReturnsCorrectData()
     {
-        $push = new RepoPush($this->getDataObjectFromJson('InputData/bitbucket-push.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/bitbucket-push.json'), true);
+        $push = new RepoPush($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/bitbucket-push.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/bitbucket-push.json'), true);
         $this->assertEquals($expectedResult, $push->getMessages());
     }
 
@@ -36,8 +36,8 @@ class BitbucketEventsTest extends PHPUnit_Framework_TestCase
      */
     public function issueCreatedEventReturnsCorrectData()
     {
-        $issue = new IssueCreated($this->getDataObjectFromJson('InputData/bitbucket-issue_created.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/bitbucket-issue_created.json'), true);
+        $issue = new IssueCreated($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/bitbucket-issue_created.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/bitbucket-issue_created.json'), true);
         $this->assertEquals($expectedResult, $issue->getMessages());
     }
 
@@ -46,8 +46,8 @@ class BitbucketEventsTest extends PHPUnit_Framework_TestCase
      */
     public function issueUpdatedEventReturnsCorrectData()
     {
-        $issue = new IssueUpdated($this->getDataObjectFromJson('InputData/bitbucket-issue_updated.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/bitbucket-issue_updated.json'), true);
+        $issue = new IssueUpdated($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/bitbucket-issue_updated.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/bitbucket-issue_updated.json'), true);
         $this->assertEquals($expectedResult, $issue->getMessages());
     }
 
@@ -56,8 +56,8 @@ class BitbucketEventsTest extends PHPUnit_Framework_TestCase
      */
     public function issueCommentCreatedEventReturnsCorrectData()
     {
-        $issue = new IssueCommentCreated($this->getDataObjectFromJson('InputData/bitbucket-issue_comment_created.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/bitbucket-issue_comment_created.json'), true);
+        $issue = new IssueCommentCreated($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/bitbucket-issue_comment_created.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/bitbucket-issue_comment_created.json'), true);
         $this->assertEquals($expectedResult, $issue->getMessages());
     }
 

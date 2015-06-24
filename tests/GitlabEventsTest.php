@@ -23,8 +23,8 @@ class GitlabEventsTest extends PHPUnit_Framework_TestCase
      */
     public function pushEventReturnsCorrectData()
     {
-        $push = new Push($this->getDataObjectFromJson('InputData/gitlab-push.json'));
-        $expectedResult = json_decode($this->loadFile('OutputData/gitlab-push.json'), true);
+        $push = new Push($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/gitlab-push.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/gitlab-push.json'), true);
 
         $this->assertEquals($expectedResult, $push->getMessages());
     }
