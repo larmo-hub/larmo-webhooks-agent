@@ -10,7 +10,7 @@ class MetadataTest extends PHPUnit_Framework_TestCase
     public function setup()
     {
         $this->timestamp = time();
-        $this->metadata = new Metadata($this->timestamp);
+        $this->metadata = new Metadata("SOURCE","AUTHSTRING",$this->timestamp);
     }
 
     /**

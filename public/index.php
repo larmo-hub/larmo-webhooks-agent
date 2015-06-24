@@ -12,6 +12,8 @@ use FP\Larmo\Agents\WebHookAgent\Exceptions\MethodNotAllowedHttpException;
 use FP\Larmo\Agents\WebHookAgent\Exceptions\ServiceNotFoundException;
 use FP\Larmo\Agents\WebHookAgent\Exceptions\EventTypeNotFoundException;
 
+require_once('/../config/config.php');
+
 header('Content-type: application/json; charset=utf-8');
 
 try {
@@ -30,7 +32,7 @@ try {
     $service = ServiceFactory::create($routing->getSourceIdentifier(), $request);
 
     /* Create metadata (header for packet) */
-    $metadata = new Metadata($service->getServiceName());
+    $metadata = new Metadata($service->getServiceName(), $config['authentication']);
 
     /* Create and send packet */
     $packet = new Packet($metadata, $service);

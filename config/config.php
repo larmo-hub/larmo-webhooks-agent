@@ -1,0 +1,6 @@
+<?php
+
+    $config = [
+        'authentication' => '',
+        'hubURI' => '',
+    ];
