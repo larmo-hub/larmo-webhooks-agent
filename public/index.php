@@ -13,6 +13,7 @@ use FP\Larmo\Agents\WebHookAgent\Exceptions\InvalidConfigurationException;
 use FP\Larmo\Agents\WebHookAgent\Exceptions\InvalidIncomingDataException;
 use FP\Larmo\Agents\WebHookAgent\Exceptions\MethodNotAllowedHttpException;
 use FP\Larmo\Agents\WebHookAgent\Exceptions\ServiceNotFoundException;
+use FP\Larmo\Agents\WebHookAgent\Exceptions\InvalidSecretSignatureException;
 
 require_once('../config/config.php');
 
@@ -39,7 +40,8 @@ try {
 
     /* Create appropriate service */
     $routing = new Routing($uri);
-    $service = ServiceFactory::create($routing->getSourceIdentifier(), $request);
+    $secrets = array_key_exists('signatures', $config) ? $config['signatures'] : array();
+    $service = ServiceFactory::create($routing->getSourceIdentifier(), $request, $secrets);
 
     /* Create metadata (header for packet) */
     $metadata = new Metadata($service->getServiceName(), $config['authentication']);
@@ -57,6 +59,9 @@ try {
 } catch (InvalidIncomingDataException $e) {
     $response['message'] = 'Data incorrect';
     http_response_code(400); // Data are incorrect
+} catch (InvalidSecretSignatureException $e) {
+    $response['message'] = 'Security signature is incorrect';
+    http_response_code(400); // Data are incorrect
 } catch (EventTypeNotFoundException $e) {
     $response['message'] = 'Event type not found';
     http_response_code(400); // We got an event type we are not prepared to handle
@@ -73,6 +78,7 @@ try {
     /* Unpredicted error */
     $response['message'] = 'Something wrong: ' . $e->getMessage();
     trigger_error($e->getMessage(), E_USER_WARNING);
+    http_response_code(400);
 } finally {
     file_put_contents('php://stdout', $response['message']);
     echo json_encode($response);
