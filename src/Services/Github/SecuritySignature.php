@@ -2,27 +2,12 @@
 
 namespace FP\Larmo\Agents\WebHookAgent\Services\Github;
 
-use FP\Larmo\Agents\WebHookAgent\Services\SecuritySignatureInterface;
+use FP\Larmo\Agents\WebHookAgent\Services\SecuritySignatureAbstract;
+use FP\Larmo\Agents\WebHookAgent\Request;
 
-class SecuritySignature implements SecuritySignatureInterface
+class SecuritySignature extends SecuritySignatureAbstract
 {
-    private $result;
-
-    public function __construct($request, $secrets)
-    {
-        $this->result = $this->testSignature($request, $secrets);
-    }
-
-    private function testSignature($request, $secrets)
-    {
-        // If secret isn't set in config then return true
-        // or check that request has correct signature
-        if(empty($secrets['github']) || $this->requestHasCorrectSecuritySignature($request, $secrets['github'])) {
-            return true;
-        }
-
-        return false;
-    }
+    protected $serviceName = 'github';
 
     private function getSignatureFromHeader($headers)
     {
@@ -34,22 +19,16 @@ class SecuritySignature implements SecuritySignatureInterface
         return null;
     }
 
-    private function requestHasCorrectSecuritySignature($request, $secret)
+    protected function requestHasCorrectSecuritySignature(Request $request)
     {
         if(($signature = $this->getSignatureFromHeader($request->getHeaders())) !== null) {
             // Signature in header has format "ALGORITHM=HASH" (ex. sha1=fe767cff7b00733332eb18e5229a8ef3f65cfa06)
             $hashArray = explode('=', $signature);
-            if(isset($hashArray[1]) && $hashArray[1] === hash_hmac($hashArray[0], $request->getPayload(), $secret)) {
+            if(isset($hashArray[1]) && $hashArray[1] === hash_hmac($hashArray[0], $request->getPayload(), $this->secret)) {
                 return true;
             }
-
         }
 
         return false;
-    }
-
-    public function isSetCorrectSignature()
-    {
-        return $this->result;
     }
 }

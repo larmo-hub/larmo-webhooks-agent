@@ -2,13 +2,14 @@
 
 namespace FP\Larmo\Agents\WebHookAgent\Services;
 
+use FP\Larmo\Agents\WebHookAgent\Request;
 use FP\Larmo\Agents\WebHookAgent\Exceptions\EventTypeNotFoundException;
 use FP\Larmo\Agents\WebHookAgent\Exceptions\InvalidSecretSignatureException;
 use FP\Larmo\Agents\WebHookAgent\Exceptions\ServiceNotFoundException;
 
 class ServiceFactory
 {
-    public static function create($serviceName, $request, $secrets = array())
+    public static function create($serviceName, Request $request, array $secrets = [])
     {
         try {
             /* Check that security signature is set and is correct */
@@ -17,7 +18,7 @@ class ServiceFactory
             if (!empty($secrets) && class_exists($securityClass)) {
                 $securitySignatureTest = new $securityClass($request, $secrets);
 
-                if (!$securitySignatureTest->isSetCorrectSignature()) {
+                if (!$securitySignatureTest->isSecuritySignatureCorrect()) {
                     throw new InvalidSecretSignatureException;
                 }
             }

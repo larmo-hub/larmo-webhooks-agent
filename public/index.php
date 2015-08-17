@@ -61,7 +61,7 @@ try {
     http_response_code(400); // Data are incorrect
 } catch (InvalidSecretSignatureException $e) {
     $response['message'] = 'Security signature is incorrect';
-    http_response_code(400); // Data are incorrect
+    http_response_code(401); // Unauthorized
 } catch (EventTypeNotFoundException $e) {
     $response['message'] = 'Event type not found';
     http_response_code(400); // We got an event type we are not prepared to handle
