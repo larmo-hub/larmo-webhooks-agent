@@ -2,6 +2,8 @@
 
 namespace FP\Larmo\Agents\WebHookAgent\Services;
 
+use FP\Larmo\Agents\WebHookAgent\Exceptions\EventTypeNotFoundException;
+
 abstract class ServiceAbstract implements ServiceDataInterface {
     protected $data;
     protected $serviceName;
@@ -33,6 +35,8 @@ abstract class ServiceAbstract implements ServiceDataInterface {
                 $event = new $eventClass($payload);
                 return $event->getMessages();
             }
+
+            throw new EventTypeNotFoundException;
         }
 
         throw new \InvalidArgumentException;
