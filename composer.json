@@ -21,7 +21,8 @@
     "require": {
       "phpunit/phpunit": "4.7",
       "php": ">=5.5.0",
-      "ext-mbstring": "*"
+      "ext-mbstring": "*",
+      "ralouphie/getallheaders": "~0.1.7"
     },
     "require-dev": {
       "codeclimate/php-test-reporter": "dev-master"
