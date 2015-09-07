@@ -9,6 +9,8 @@ abstract class GitlabEvent extends EventAbstract
 {
     use RepositoryInfoTrait;
 
+    protected $type = '';
+
     public function __construct($data)
     {
         $this->repositoryInfo = $this->setRepositoryInfo($data);

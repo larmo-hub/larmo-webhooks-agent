@@ -9,7 +9,6 @@ abstract class EventAbstract implements EventInterface
     public function __construct($data)
     {
         $this->messages = $this->prepareMessages($data);
-        $this->prepareInternalData($data);
     }
 
     public function getMessages()
@@ -33,11 +32,6 @@ abstract class EventAbstract implements EventInterface
         ];
 
         return $message;
-    }
-
-    protected function prepareInternalData($data)
-    {
-
     }
 
     abstract protected function prepareType($data);
