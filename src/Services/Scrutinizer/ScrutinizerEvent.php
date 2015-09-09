@@ -3,7 +3,7 @@
 namespace FP\Larmo\Agents\WebHookAgent\Services\Scrutinizer;
 
 use FP\Larmo\Agents\WebHookAgent\Services\EventAbstract;
-use FP\Larmo\Agents\WebHookAgent\Services\RepositoryInfo as RepositoryInfoTrait;
+use FP\Larmo\Agents\WebHookAgent\Services\RepositoryInfoTrait;
 
 class ScrutinizerEvent extends EventAbstract
 {

@@ -8,7 +8,7 @@ class Packet
 {
     private $packetArray;
 
-    public function __construct($metadataObject, ServiceDataInterface $service)
+    public function __construct(Metadata $metadataObject, ServiceDataInterface $service)
     {
         $metadata = $metadataObject->getMetadata();
         $messages = $service->getData();
