@@ -9,7 +9,7 @@ before_script:
 
 script:
 - composer test
-- CODECLIMATE_REPO_TOKEN=3a3f5a184b3e7a8994c5ba76723e9d4a1f1f65f80b22cac5d9a7e90fd1ed5b84 ./vendor/bin/test-reporter
+- CODECLIMATE_REPO_TOKEN=88655809945d73dfbf25af2dadc1886110966ebe53d4e99a4d3187ef77d7d5ba ./vendor/bin/test-reporter
 
 matrix:
   fast_finish: true

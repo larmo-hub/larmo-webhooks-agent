@@ -1,9 +1,9 @@
 # Larmo WebHooks Agent
 
-[![Build Status](https://travis-ci.org/mejt/larmo-webhooks-agent.svg?branch=master)](https://travis-ci.org/mejt/larmo-webhooks-agent)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mejt/larmo-webhooks-agent/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mejt/larmo-webhooks-agent/?branch=master)
-[![Code Climate](https://codeclimate.com/github/mejt/larmo-webhooks-agent/badges/gpa.svg)](https://codeclimate.com/github/mejt/larmo-webhooks-agent)
-[![Test Coverage](https://codeclimate.com/github/mejt/larmo-webhooks-agent/badges/coverage.svg)](https://codeclimate.com/github/mejt/larmo-webhooks-agent/coverage)
+[![Build Status](https://travis-ci.org/larmo-hub/larmo-webhooks-agent.svg?branch=master)](https://travis-ci.org/larmo-hub/larmo-webhooks-agent
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/larmo-hub/larmo-webhooks-agent/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/larmo-hub/larmo-webhooks-agent/?branch=master)
+[![Code Climate](https://codeclimate.com/github/larmo-hub/larmo-webhooks-agent/badges/gpa.svg)](https://codeclimate.com/github/larmo-hub/larmo-webhooks-agent)
+[![Test Coverage](https://codeclimate.com/github/larmo-hub/larmo-webhooks-agent/badges/coverage.svg)](https://codeclimate.com/github/larmo-hub/larmo-webhooks-agent/coverage)
 
 This is a WebHooks Agent for open source project *Larmo*.
 
