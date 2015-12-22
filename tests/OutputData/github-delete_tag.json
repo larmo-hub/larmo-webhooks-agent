@@ -1,11 +1,11 @@
 [
   {
-    "type": "github.create_tag",
+    "type": "github.delete_tag",
     "timestamp": "{now}",
     "author": {
       "login": "baxterthehacker"
     },
-    "body": "created tag",
+    "body": "deleted tag",
     "extras": {
       "ref": "simple-tag",
       "repository": {

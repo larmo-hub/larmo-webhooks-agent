@@ -13,7 +13,7 @@ class Delete extends GithubEvent
 
     protected function prepareType($data)
     {
-        return 'github.deleted_' . $data->ref_type;
+        return 'github.delete_' . $data->ref_type;
     }
 
     protected function prepareBody($data)
