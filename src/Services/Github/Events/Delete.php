@@ -13,12 +13,12 @@ class Delete extends GithubEvent
 
     protected function prepareType($data)
     {
-        return 'github.create_' . $data->ref_type;
+        return 'github.deleted_' . $data->ref_type;
     }
 
     protected function prepareBody($data)
     {
-        return 'created ' . $data->ref_type;
+        return 'deleted ' . $data->ref_type;
     }
 
     protected function prepareTimeStamp($data)
