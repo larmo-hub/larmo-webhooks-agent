@@ -3,7 +3,7 @@
 namespace FP\Larmo\Agents\WebHookAgent\Services\Bitbucket;
 
 use FP\Larmo\Agents\WebHookAgent\Services\EventAbstract;
-use FP\Larmo\Agents\WebHookAgent\Services\RepositoryInfo as RepositoryInfoTrait;
+use FP\Larmo\Agents\WebHookAgent\Services\RepositoryInfoTrait;
 
 abstract class BitbucketEvent extends EventAbstract
 {

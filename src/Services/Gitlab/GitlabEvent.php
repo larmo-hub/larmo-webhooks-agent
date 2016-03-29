@@ -3,11 +3,13 @@
 namespace FP\Larmo\Agents\WebHookAgent\Services\Gitlab;
 
 use FP\Larmo\Agents\WebHookAgent\Services\EventAbstract;
-use FP\Larmo\Agents\WebHookAgent\Services\RepositoryInfo as RepositoryInfoTrait;
+use FP\Larmo\Agents\WebHookAgent\Services\RepositoryInfoTrait;
 
 abstract class GitlabEvent extends EventAbstract
 {
     use RepositoryInfoTrait;
+
+    protected $type = '';
 
     public function __construct($data)
     {

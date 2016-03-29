@@ -1,24 +1,24 @@
 [
   {
-    "type": "gitlab.comment_mergerequest",
-    "timestamp": "2015-05-17 18:21:36 UTC",
+    "type": "gitlab.comment_snippet",
+    "timestamp": "2015-05-17 18:35:50 UTC",
     "author": {
       "name": "Administrator",
       "login": "root"
     },
     "body": "added comment",
     "extras": {
-      "id": 1244,
-      "url": "http://example.com/gitlab-org/gitlab-test/merge_requests/1#note_1244",
-      "body": "This MR needs work.",
+      "id": 1245,
+      "url": "http://example.com/gitlab-org/gitlab-test/snippets/53#note_1245",
+      "body": "Is this snippet doing what it's supposed to be doing?",
       "repository": {
         "name": "Gitlab Test",
         "url": "http://example.com/gitlab-org/gitlab-test"
       },
-      "merge_request": {
-        "id": 7,
-        "number": 1,
-        "title": "Tempora et eos debitis quae laborum et."
+      "snippet": {
+        "id": 53,
+        "title": "test",
+        "file": "test.rb"
       }
     }
   }

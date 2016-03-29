@@ -30,22 +30,28 @@ class Note extends GitlabEvent
             )
         );
 
+        $message['extras'] = $this->setExtras($dataObject, $type, $message['extras']);
+        return array($message);
+    }
+
+    private function setExtras($dataObject, $type, $extras)
+    {
         switch($type){
             case 'mergerequest':
-                $message['extras']['merge_request'] = $this->extraDataMergeRequest($dataObject->merge_request);
+                $extras['merge_request'] = $this->extraDataMergeRequest($dataObject->merge_request);
                 break;
             case 'commit':
-                $message['extras']['commit'] = $this->extraDataCommit($dataObject->commit);
+                $extras['commit'] = $this->extraDataCommit($dataObject->commit);
                 break;
             case 'issue':
-                $message['extras']['issue'] = $this->extraDataIssue($dataObject->issue);
+                $extras['issue'] = $this->extraDataIssue($dataObject->issue);
                 break;
             case 'snippet':
-                $message['extras']['snippet'] = $this->extraDataSnippet($dataObject->snippet);
+                $extras['snippet'] = $this->extraDataSnippet($dataObject->snippet);
                 break;
         }
 
-        return array($message);
+        return $extras;
     }
 
     private function extraDataMergeRequest($mr) {

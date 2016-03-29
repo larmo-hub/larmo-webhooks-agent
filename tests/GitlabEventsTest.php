@@ -92,10 +92,9 @@ class GitlabEventsTest extends BaseEventsTest
      */
     public function commentSnippetReturnCorrectData()
     {
-        $comment = new Note($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/gitlab-comment_mergerequest.json'));
-        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/gitlab-comment_mergerequest.json'), true);
+        $comment = new Note($this->getDataObjectFromJson(dirname(__FILE__).'/InputData/gitlab-comment_snippet.json'));
+        $expectedResult = json_decode($this->loadFile(dirname(__FILE__).'/OutputData/gitlab-comment_snippet.json'), true);
 
         $this->assertEquals($expectedResult, $comment->getMessages());
     }
 }
-

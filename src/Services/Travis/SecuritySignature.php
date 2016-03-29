@@ -11,8 +11,8 @@ class SecuritySignature extends SecuritySignatureAbstract
 
     protected function requestHasCorrectSecuritySignature(Request $request)
     {
-        $headers = getallheaders();
-        if ( ($signature = $headers['Authorization']) !== null) {
+        $headers = function_exists('getallheaders') ? getallheaders() : filter_input_array(INPUT_SERVER);
+        if (!empty($headers['Authorization']) && ($signature = $headers['Authorization']) !== null) {
 
             $repoSlug = isset($headers['Travis-Repo-Slug']) ? $headers['Travis-Repo-Slug'] : '';
             if(hash('sha256', $repoSlug . $this->secret) === $signature) {

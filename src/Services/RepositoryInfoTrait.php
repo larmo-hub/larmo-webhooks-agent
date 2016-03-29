@@ -2,7 +2,7 @@
 
 namespace FP\Larmo\Agents\WebHookAgent\Services;
 
-trait RepositoryInfo
+trait RepositoryInfoTrait
 {
     private $repositoryInfo;
 
